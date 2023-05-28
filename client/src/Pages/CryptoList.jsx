@@ -1,7 +1,9 @@
+import { Cryptocurrencies } from "../Components";
+
 const CryptoList = () => {
     return (
         <>
-            <h1>Cryptocurrencies List</h1>
+            <Cryptocurrencies />
         </>
     )
 }

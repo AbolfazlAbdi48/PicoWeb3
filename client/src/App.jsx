@@ -3,11 +3,15 @@ import { Home, CryptoList } from "./Pages";
 import { Intro, Navbar } from "./Components";
 
 const App = () => {
+  const { pathname } = useLocation()
+
   return (
     <section className="min-h-screen">
       <section className="gradient-bg-welcome">
         <Navbar />
-        <Intro />
+        {
+          pathname == '/' && <Intro />
+        }
       </section>
 
       <Routes>
