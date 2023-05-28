@@ -39,10 +39,10 @@ const Intro = () => {
                         <div className={`${commonStyles}`} >
                             Markets
                         </div>
-                        <div className={`rounded-tr-2xl ${commonStyles}`} >
+                        <div className={`md:rounded-tr-2xl ${commonStyles}`} >
                             Gift
                         </div>
-                        <div className={`rounded-bl-2xl ${commonStyles}`} >
+                        <div className={`md:rounded-bl-2xl ${commonStyles}`} >
                             Transactions
                         </div>
                         <div className={`${commonStyles}`} >
