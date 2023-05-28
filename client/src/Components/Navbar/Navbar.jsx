@@ -63,6 +63,7 @@ const Navbar = () => {
                                             key={index}
                                             title={item.title}
                                             to={item.to}
+                                            classProps={"mb-3"}
                                         />
                                     ))
                                 }
