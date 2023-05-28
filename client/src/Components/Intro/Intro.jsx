@@ -12,7 +12,7 @@ const Intro = () => {
                     <h1 className="text-white text-3xl sm:text-5xl text-gradient py-1">
                         The global
                         <br />
-                        crypto state !
+                        crypto stats !
                     </h1>
                     <p className="text-white text-left mt-5 font-light md:w-9/10 w-11/12 text-base">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos.
