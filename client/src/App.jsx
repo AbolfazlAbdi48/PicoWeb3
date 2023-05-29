@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Home, CryptoList, TransactionsList } from "./Pages";
+import { Home, CryptoList, TransactionsList, CryptoDetail } from "./Pages";
 import { Intro, Navbar } from "./Components";
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cryptocurrencies" element={<CryptoList />} />
+        <Route path="/crypto/:coinId" element={<CryptoDetail />} />
         <Route path="/transactions" element={<TransactionsList />} />
       </Routes>
 

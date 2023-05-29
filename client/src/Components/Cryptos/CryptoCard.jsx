@@ -26,7 +26,9 @@ const CryptoCard = () => {
                         </span>
                     </p>
 
-                    <Link className="bg-transparent hover:bg-[#2952e3] border-2 border-[#2952e3] py-3 px-6 mx-4 rounded mt-4 text-white cursor-pointer hover:bg-[#2546bd] ease-in duration-200">
+                    <Link to={`/crypto/1`}
+                        className="bg-transparent hover:bg-[#2952e3] border-2 border-[#2952e3] py-3 px-6 mx-4 rounded mt-4 text-white cursor-pointer hover:bg-[#2546bd] ease-in duration-200"
+                    >
                         Details
                     </Link>
                 </div>
