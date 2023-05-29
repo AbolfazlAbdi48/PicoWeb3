@@ -1,7 +1,7 @@
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from 'chart.js';
 import { IoLogoUsd } from "react-icons/io";
-import { BsWater } from "react-icons/bs";
+import { FaWater } from "react-icons/fa";
 import { GiPodiumWinner, GiWaterDrop } from "react-icons/gi";
 import { CryptoStatisticCard } from "../Components";
 
@@ -59,7 +59,7 @@ const CryptoDetail = () => {
                     <CryptoStatisticCard
                         color="bg-[#A24B82]"
                         title="Market Cap"
-                        icon={<BsWater fontSize={17} className="text-white" />}
+                        icon={<FaWater fontSize={17} className="text-white" />}
                         subtitle="0.5"
                     />
                 </div>
