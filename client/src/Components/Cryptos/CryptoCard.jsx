@@ -21,11 +21,11 @@ const CryptoCard = ({
                     </p>
 
                     <p className="text-white text-base mt-5">
-                        Price: $ {price}
+                        Price: {new Intl.NumberFormat('en', { style: 'currency', currency: 'usd' }).format(price)}
                     </p>
 
                     <p className="text-white text-base mt-5">
-                        Mrket cap: $ {marketCap}
+                        Mrket cap: ${new Intl.NumberFormat('en', { notation: 'compact' }).format(marketCap)}
                     </p>
 
                     <p className="text-white text-base mt-5">
