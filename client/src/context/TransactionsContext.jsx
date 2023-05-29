@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../utils/constant";
-import { warningToast } from "../utils/toasts";
+import { successToast, warningToast } from "../utils/toasts";
 
 export const TransactionContext = createContext()
 
@@ -40,12 +40,28 @@ export const TransactionProvider = ({ children }) => {
         }
     }
 
+    const connectWallet = async () => {
+        try {
+            if (!ethereum) return warningToast('Please install MetaMask wallet !')
+
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+
+            setCurrentWallet(accounts[0])
+            successToast('Wallet Successfuly connected!')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         checkWalletConnected()
     }, [])
 
     return (
-        <TransactionContext.Provider value={{ test: 'test' }}>
+        <TransactionContext.Provider value={{
+            currentWallet,
+            connectWallet
+        }}>
             {children}
         </TransactionContext.Provider>
     )

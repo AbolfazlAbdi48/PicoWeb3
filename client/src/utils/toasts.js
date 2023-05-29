@@ -12,3 +12,16 @@ export const warningToast = (title) => {
         theme: "dark",
     });
 }
+
+export const successToast = (title) => {
+    toast.success(title, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+}

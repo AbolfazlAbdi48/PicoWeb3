@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/Si";
 import { BsInfoCircle } from "react-icons/Bs";
+import { TransactionContext } from "../../context/transactionsContext";
+import { shortenAddress } from "../../utils/shortenAddress";
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Intro = () => {
+    const { currentWallet, connectWallet } = useContext(TransactionContext)
+
     return (
         <section className="w-full flex justify-center items-center">
             <section className="flex md:flex-row flex-col items-center justify-between md:p-20 py-12 px-4">
@@ -18,19 +23,23 @@ const Intro = () => {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos.
                     </p>
 
-                    <button
-                        type="button"
-                        onClick={() => { }}
-                        className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd] ease-in duration-300 font-bold"
-                    >
-                        <p className="text-white text-base font-semibold flex">
-                            Connect Wallet
-                            <AiFillPlayCircle
-                                fontSize={18}
-                                className="mx-2 mt-1"
-                            />
-                        </p>
-                    </button>
+                    {
+                        !currentWallet && (
+                            <button
+                                type="button"
+                                onClick={connectWallet}
+                                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd] ease-in duration-300 font-bold"
+                            >
+                                <p className="text-white text-base font-semibold flex">
+                                    Connect Wallet
+                                    <AiFillPlayCircle
+                                        fontSize={18}
+                                        className="mx-2 mt-1"
+                                    />
+                                </p>
+                            </button>
+                        )
+                    }
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`} >
@@ -64,9 +73,17 @@ const Intro = () => {
                                 <BsInfoCircle fontSize={17} color="#fff" />
                             </div>
                             <div>
-                                <p className="text-white font-light text-sm">
-                                    Please Connect Wallet
-                                </p>
+                                {
+                                    currentWallet ? (
+                                        <p className="text-white font-light text-sm">
+                                            {shortenAddress(currentWallet)}
+                                        </p>
+                                    ) : (
+                                        <p className="text-white font-light text-sm">
+                                            Please Connect Wallet
+                                        </p>
+                                    )
+                                }
                                 <p className="text-white font-semibold text-lg mt-1">
                                     Ethereum
                                 </p>
