@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Home, CryptoList, TransactionsList, CryptoDetail } from "./Pages";
 import { Intro, Navbar } from "./Components";
+import SendTransaction from "./Pages/sendTransaction";
 
 const App = () => {
   const { pathname } = useLocation()
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/cryptocurrencies" element={<CryptoList />} />
         <Route path="/crypto/:coinId" element={<CryptoDetail />} />
         <Route path="/transactions" element={<TransactionsList />} />
+        <Route path="/gift" element={<SendTransaction />} />
       </Routes>
 
     </section>
