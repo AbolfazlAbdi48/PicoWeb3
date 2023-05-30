@@ -1,4 +1,5 @@
 import { shortenAddress } from "../../utils/shortenAddress";
+import TransactionGif from "./TransactionGif";
 
 const TransactionCard = (transaction) => {
     return (
@@ -28,10 +29,8 @@ const TransactionCard = (transaction) => {
                     </p>
 
                 </div>
-                <img
-                    src="https://i.gifer.com/origin/68/68b376b5408907275c063e2c719fd9d9_w200.gif"
-                    alt="gif"
-                    className="w-64 h-64 2xl:h-64 rounded-md shadow-lg object-cover"
+                <TransactionGif
+                    keyword={transaction.keyword}
                 />
 
                 <div className="bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl">
