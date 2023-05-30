@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Home, CryptoList, TransactionsList, CryptoDetail } from "./Pages";
-import { Intro, Navbar } from "./Components";
+import { Intro, Navbar, Footer } from "./Components";
 import SendTransaction from "./Pages/sendTransaction";
 
 const App = () => {
@@ -23,6 +23,8 @@ const App = () => {
         <Route path="/transactions" element={<TransactionsList />} />
         <Route path="/gift" element={<SendTransaction />} />
       </Routes>
+
+      <Footer />
 
     </section>
   )

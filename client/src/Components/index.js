@@ -8,3 +8,4 @@ export { default as Loader } from "./Loading/Loader";
 export { default as TransactionLoading } from "./Loading/TransactionLoading";
 export { default as TransactionFormField } from "./Forms/TransactionFormField";
 export { default as ConnectWalletButton } from "./Buttons/ConnectWalletButton";
+export { default as Footer } from "./Footer/Footer";
