@@ -23,7 +23,10 @@ const Intro = () => {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos.
                     </p>
 
-                    <ConnectWalletButton />
+                    <ConnectWalletButton
+                        currentWallet={currentWallet}
+                        connectWallet={connectWallet}
+                    />
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`} >
