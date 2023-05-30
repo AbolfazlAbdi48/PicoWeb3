@@ -75,7 +75,7 @@ const SendTransaction = () => {
                     />
 
 
-                    <div className="flex justify-center items-center mt-[40px]">
+                    <div className="flex justify-center items-center mt-[10px]">
                         {
                             isLoading ? (
                                 <TransactionLoading />
