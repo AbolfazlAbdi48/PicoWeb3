@@ -25,11 +25,37 @@ export const TransactionProvider = ({ children }) => {
         message: ''
     })
     const [isLoading, setIsLoading] = useState(false)
+    const [transactions, setTransactions] = useState([])
 
     const navigate = useNavigate()
 
     const handleChange = (e, name) => {
         setFormData(prevState => ({ ...prevState, [name]: e.target.value }))
+    }
+
+    const getAllTransactions = async () => {
+        try {
+            if (!ethereum) return warningToast('Please install MetaMask wallet !')
+
+            const transactionsContract = createEthereumContract()
+            setIsLoading(true)
+            const getAvailableTransactions = await transactionsContract.getAllTransactions()
+            setIsLoading(false)
+
+            const structruedTransactions = getAvailableTransactions.map(transaction => ({
+                addressTo: transaction.receiver,
+                addressFrom: transaction.sender,
+                timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
+                keyword: transaction.keyword,
+                message: transaction.message,
+                amount: parseInt(transaction.amount._hex) / (10 ** 18)
+            }))
+
+            setTransactions(structruedTransactions)
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const checkWalletConnected = async () => {
@@ -40,8 +66,7 @@ export const TransactionProvider = ({ children }) => {
 
             if (accounts.length) {
                 setCurrentWallet(accounts[0])
-
-                // TODO: get all transactions.
+                getAllTransactions()
             } else {
                 warningToast('No accounts found !')
             }
@@ -57,6 +82,7 @@ export const TransactionProvider = ({ children }) => {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
 
             setCurrentWallet(accounts[0])
+            getAllTransactions()
             successToast('Wallet Successfuly connected!')
         } catch (error) {
             console.log(error)
@@ -99,6 +125,7 @@ export const TransactionProvider = ({ children }) => {
                 keyword: '',
                 message: ''
             })
+            getAllTransactions()
 
         } catch (error) {
             console.log(error)
@@ -116,7 +143,8 @@ export const TransactionProvider = ({ children }) => {
             formData,
             handleChange,
             sendTransaction,
-            isLoading
+            isLoading,
+            transactions
         }}>
             {children}
         </TransactionContext.Provider>
