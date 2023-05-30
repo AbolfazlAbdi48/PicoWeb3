@@ -52,8 +52,8 @@ contract Transactions {
         );
     }
 
-    function getAllTransactions() public view returns (TransferStruct memory) {
-        return getAllTransactions();
+    function getAllTransactions() public view returns (TransferStruct[] memory) {
+        return transactions;
     }
 
     function getTransactionsCount() public view returns (uint256) {
