@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/Si";
 import { BsInfoCircle } from "react-icons/Bs";
 import { TransactionContext } from "../../context/transactionsContext";
 import { shortenAddress } from "../../utils/shortenAddress";
+import { ConnectWalletButton } from "../";
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -23,23 +23,7 @@ const Intro = () => {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos.
                     </p>
 
-                    {
-                        !currentWallet && (
-                            <button
-                                type="button"
-                                onClick={connectWallet}
-                                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd] ease-in duration-300 font-bold"
-                            >
-                                <p className="text-white text-base font-semibold flex">
-                                    Connect Wallet
-                                    <AiFillPlayCircle
-                                        fontSize={18}
-                                        className="mx-2 mt-1"
-                                    />
-                                </p>
-                            </button>
-                        )
-                    }
+                    <ConnectWalletButton />
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`} >

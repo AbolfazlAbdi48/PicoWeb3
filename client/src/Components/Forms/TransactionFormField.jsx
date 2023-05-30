@@ -2,7 +2,7 @@ const TransactionFormField = ({ labelName, placeholder, inputType, isTextArea, v
     return (
         <label className="flex-1 w-full flex flex-col">
             {labelName && (
-                <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">{labelName}</span>
+                <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[rgba(255,255,255,0.9)] mb-[10px]">{labelName}</span>
             )}
             {isTextArea ? (
                 <textarea
@@ -11,7 +11,7 @@ const TransactionFormField = ({ labelName, placeholder, inputType, isTextArea, v
                     onChange={handleChange}
                     rows={10}
                     placeholder={placeholder}
-                    className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] white-glassmorphism text-white text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
+                    className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] white-glassmorphism text-white text-[14px] placeholder:text-[#rgba(0,0,0,0.8)] rounded-[10px] sm:min-w-[300px]"
                 />
             ) : (
                 <input
@@ -21,7 +21,7 @@ const TransactionFormField = ({ labelName, placeholder, inputType, isTextArea, v
                     type={inputType}
                     step="0.1"
                     placeholder={placeholder}
-                    className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] white-glassmorphism text-white text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
+                    className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] white-glassmorphism text-white text-[14px] placeholder:text-[#rgba(0,0,0,0.8)] rounded-[10px] sm:min-w-[300px]"
                 />
             )}
         </label>
