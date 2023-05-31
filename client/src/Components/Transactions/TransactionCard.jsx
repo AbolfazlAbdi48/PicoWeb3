@@ -9,13 +9,13 @@ const TransactionCard = (transaction) => {
 
                     <a href={`https://sepolia.etherscan.io/address/${transaction.addressFrom}`} target="_blank" rel="noopener noreferrer">
                         <p className="text-white text-base">
-                            From: {shortenAddress(transaction.addressFrom)}
+                            From: <span className="underline text-blue-300">{shortenAddress(transaction.addressFrom)}</span>
                         </p>
                     </a>
 
                     <a href={`https://sepolia.etherscan.io/address/${transaction.addressTo}`} target="_blank" rel="noopener noreferrer">
                         <p className="text-white text-base">
-                            To: {shortenAddress(transaction.addressTo)}
+                            To: <span className="underline text-blue-300">{shortenAddress(transaction.addressTo)}</span>
                         </p>
                     </a>
 
